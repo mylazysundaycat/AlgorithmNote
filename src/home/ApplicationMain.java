@@ -2,8 +2,7 @@ package home;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
@@ -65,7 +64,7 @@ class HeadPanel extends JPanel {
  * 백연동 코드 구현 필요
  */
 //Foot
-class FootPanel extends JPanel {
+class FootPanel extends JPanel{
     JLabel home_label, mypage_label, setting_label;
     ImageIcon home_icon, mypage_icon, setting_icon;
     Image home_img, mypage_img, setting_img;
@@ -73,33 +72,40 @@ class FootPanel extends JPanel {
     public FootPanel(){
         setSize(500, 120);
         setBackground(Color.cyan);
-
+        setLayout(null);
         //홈아이콘
         home_icon = new ImageIcon("src/home/icon/home.png");
         home_img = home_icon.getImage();
-        home_img = home_img.getScaledInstance(35,30,Image.SCALE_SMOOTH);
+        home_img = home_img.getScaledInstance(70 ,70,Image.SCALE_SMOOTH);
         home_icon = new ImageIcon(home_img);
         home_label = new JLabel(home_icon);
-        home_label.setBounds(384,5, 40, 30);
+        home_label.setBounds(20,10, 70, 70);
         add(home_label);
         //마이페이지아이콘
         mypage_icon = new ImageIcon("src/home/icon/person.png");
         mypage_img = mypage_icon.getImage();
-        mypage_img = mypage_img.getScaledInstance(35,30,Image.SCALE_SMOOTH);
+        mypage_img = mypage_img.getScaledInstance(70,70,Image.SCALE_SMOOTH);
         mypage_icon = new ImageIcon(mypage_img);
         mypage_label = new JLabel(mypage_icon);
-        mypage_label.setBounds(384,5, 40, 30);
+        mypage_label.setBounds(215,10, 70, 70);
         add(mypage_label);
         //셋팅아이콘
         setting_icon = new ImageIcon("src/home/icon/setting.png");
         setting_img = setting_icon.getImage();
-        setting_img = setting_img.getScaledInstance(35,30,Image.SCALE_SMOOTH);
+        setting_img = setting_img.getScaledInstance(70,70,Image.SCALE_SMOOTH);
         setting_icon = new ImageIcon(setting_img);
         setting_label = new JLabel(setting_icon);
-        setting_label.setBounds(384,5, 40, 30);
+        setting_label.setBounds(395,10, 70, 70);
         add(setting_label);
         setVisible(true);
+
+        //TO DO : 코드 구현 필요
+        home_label.addMouseListener(new MouseAdapter() {});
+        mypage_label.addMouseListener(new MouseAdapter() {});
+        setting_label.addMouseListener(new MouseAdapter() {});
+
     }
+
 }
 
 //Body
@@ -143,7 +149,7 @@ public class ApplicationMain extends JFrame{
         add(headPanel);
 
         FootPanel footPanel = new FootPanel();
-        footPanel.setBounds(0,780,500,120);
+        footPanel.setBounds(0,770,500,100);
         add(footPanel);
 
         setVisible(true);
