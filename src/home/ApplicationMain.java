@@ -77,6 +77,7 @@ class ListPanel extends JPanel{
         next.setBorder(BorderFactory.createLineBorder(new Color(157,184,177)));
         add(pre);
         add(next);setVisible(true);
+        //test
 
     }
 }
