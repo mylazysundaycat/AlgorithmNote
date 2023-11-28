@@ -10,23 +10,23 @@ import java.time.LocalTime;
 import java.util.Date;
 
 //Head
-class HeadPanel extends JPanel {
+class TopBarPanel extends JPanel {
     JLabel jtime, battery, wifi;
     Date time;
     SimpleDateFormat formatter;
     Timer timer;
     ImageIcon battery_icon, wifi_icon;
     Image battery_img, wifi_img;
-    public HeadPanel(){
+    public TopBarPanel(){
         setLayout(null);
         setSize(500,50);
-        setBackground(Color.WHITE);
+        setBackground(new Color(241, 241, 241));
         //시간
         time = new Date();
         formatter = new SimpleDateFormat("HH:mm:ss");
         String formatedNow = formatter.format(time);
         jtime = new JLabel(formatedNow);
-        jtime.setFont(new Font("맑은 고딕", Font.PLAIN, 24));
+        jtime.setFont(new Font("맑은 고딕", Font.BOLD, 20));
         jtime.setBounds(10, 5, 100, 30);
         add(jtime);
 
@@ -62,113 +62,6 @@ class HeadPanel extends JPanel {
     }
 }
 
-
-//Foot
-class FootPanel extends JPanel{
-    JLabel home_label, mypage_label, setting_label;
-    ImageIcon home_icon, mypage_icon, setting_icon;
-    Image home_img, mypage_img, setting_img;
-
-    public FootPanel(){
-        setSize(500, 120);
-        setBackground(new Color(217,217,217));
-        setLayout(null);
-        //홈아이콘
-        home_icon = new ImageIcon("src/home/icon/home.png");
-        home_img = home_icon.getImage();
-        home_img = home_img.getScaledInstance(60 ,60,Image.SCALE_SMOOTH);
-        home_icon = new ImageIcon(home_img);
-        home_label = new JLabel(home_icon);
-        home_label.setBounds(20,15, 70, 70);
-        add(home_label);
-        //마이페이지아이콘
-        mypage_icon = new ImageIcon("src/home/icon/person.png");
-        mypage_img = mypage_icon.getImage();
-        mypage_img = mypage_img.getScaledInstance(60,60,Image.SCALE_SMOOTH);
-        mypage_icon = new ImageIcon(mypage_img);
-        mypage_label = new JLabel(mypage_icon);
-        mypage_label.setBounds(215,15, 70, 70);
-        add(mypage_label);
-        //셋팅아이콘
-        setting_icon = new ImageIcon("src/home/icon/setting.png");
-        setting_img = setting_icon.getImage();
-        setting_img = setting_img.getScaledInstance(60,60,Image.SCALE_SMOOTH);
-        setting_icon = new ImageIcon(setting_img);
-        setting_label = new JLabel(setting_icon);
-        setting_label.setBounds(395,15, 70, 70);
-        add(setting_label);
-        setVisible(true);
-
-        //TODO 코드 구현 필요. 홈버튼, 마이페이지버튼, 환경설정 버튼 - 데이터연동
-        home_label.addMouseListener(new MouseAdapter() {});
-        mypage_label.addMouseListener(new MouseAdapter() {});
-        setting_label.addMouseListener(new MouseAdapter() {});
-
-    }
-
-}
-
-
-//Body
-//홈 화면
-class HomePanel extends JPanel {
-
-    public HomePanel(){
-        setSize(500, 900);
-        setBackground(new Color(241,241,241));
-        setLayout(null);
-        //검색 패널
-        SearchPanel search_panel = new SearchPanel();
-        search_panel.setBounds(0,0,500,70);
-        add(search_panel);
-        //상품리스트 패널
-        ListPanel list_panel = new ListPanel();
-        list_panel.setBounds(0,70,500,800);
-        add(list_panel);
-
-        setVisible(true);
-    }
-}
-class SearchPanel extends JPanel{
-    JLabel search_label, basket_label;
-    ImageIcon search_icon, basket_icon;
-    Image search_img, basket_img;
-    JTextField search_txt;
-    public SearchPanel(){
-        setSize(500,135);
-        setLayout(null);
-        //검색아이콘
-        search_icon = new ImageIcon("src/home/icon/search.png");
-        search_img = search_icon.getImage();
-        search_img = search_img.getScaledInstance(50,55,Image.SCALE_SMOOTH);
-        search_icon = new ImageIcon(search_img);
-        search_label = new JLabel(search_icon);
-        search_label.setBounds(350,10, 55, 55);
-        add(search_label);
-        //장바구니아이콘
-        basket_icon = new ImageIcon("src/home/icon/basket.png");
-        basket_img = basket_icon.getImage();
-        basket_img = basket_img.getScaledInstance(50, 55, Image.SCALE_SMOOTH);
-        basket_icon = new ImageIcon(basket_img);
-        basket_label = new JLabel(basket_icon);
-        basket_label.setBounds(410, 10, 55, 55);
-        add(basket_label);
-        //검색창
-
-        search_txt = new JTextField(30);
-        search_txt.setBackground(new Color(234,229,229));
-        search_txt.setBounds(10,10,330,50);
-        search_txt.setFont(new Font("맑은고딕",Font.PLAIN,24));
-        search_txt.setBorder(new LineBorder(new Color(234,229,229)));
-        add(search_txt);
-
-        //TODO 코드 구현 필요. 검색/장바구니 데이터연결
-        search_label.addMouseListener(new MouseAdapter() {});
-        basket_label.addMouseListener(new MouseAdapter() {});
-
-        setVisible(true);
-    }
-}
 class ListPanel extends JPanel{
     //TODO 데이터와 연결할 때, 밑에 배열 처리한 데이터를 List<String> 이런식으로 바꾸시면 될 듯
     String[] temporary_title = {
@@ -260,6 +153,9 @@ class ProductPanel extends JPanel{
         setSize(500,900);
         setBackground(new Color(241,241,241));
 
+        //로고 패널
+
+
         //검색 패널
         SearchPanel search_panel = new SearchPanel();
         search_panel.setBounds(0,0,500,70);
@@ -323,7 +219,9 @@ class ProductPanel extends JPanel{
 class MypagePanel extends JPanel {}
 //설정 화면 (회원가입 및 로그인)
 class SettingPanel extends JPanel {}
-
+//상품주문페이지 화면
+class BuyPanel extends JPanel {}
+//회원가입 페이지
 
 
 
@@ -332,11 +230,15 @@ public class ApplicationMain extends JFrame{
     public ApplicationMain(){
         setLayout(null);
         setTitle("CP2-ShoppingMall");
-        setSize(500,940);
+        setSize(500,1020);
         //헤더
-        HeadPanel head_panel = new HeadPanel();
-        head_panel.setBounds(0,0,500,45);
-        add(head_panel);
+        TopBarPanel topbar_panel = new TopBarPanel();
+        topbar_panel.setBounds(0,0,500,45);
+        add(topbar_panel);
+        //로고
+        LogoPanel logo_panel = new LogoPanel();
+        logo_panel.setBounds(0,45,500,90);
+        add(logo_panel);
         /**
          * 바디 부분만
          * HomePanel
@@ -347,16 +249,16 @@ public class ApplicationMain extends JFrame{
          */
         //바디
         //1. HomePanel
-        //HomePanel home_panel = new HomePanel();
-        //home_panel.setBounds(0,45,500,765);
-        //add(home_panel);
+        HeadPanel head_panel = new HeadPanel();
+        head_panel.setBounds(0,130,500,765);
+        add(head_panel);
         //2. ProductPanel
-        ProductPanel product_panel = new ProductPanel();
-        product_panel.setBounds(0,45,500,765);
-        add(product_panel);
+//        ProductPanel product_panel = new ProductPanel();
+//        product_panel.setBounds(0,45,500,765);
+//        add(product_panel);
         //푸터
         FootPanel foot_panel = new FootPanel();
-        foot_panel.setBounds(0,810,500,100);
+        foot_panel.setBounds(0,900,500,100);
         add(foot_panel);
 
         setVisible(true);
