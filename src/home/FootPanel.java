@@ -20,7 +20,7 @@ class FootPanel extends JPanel {
         home_label.setBounds(20,15, 70, 70);
         add(home_label);
         //마이페이지아이콘
-        mypage_icon = new ImageIcon("src/home/image/icon/person.png");
+        mypage_icon = new ImageIcon("src/home/image/icon/user.png");
         mypage_img = mypage_icon.getImage();
         mypage_img = mypage_img.getScaledInstance(60,60,Image.SCALE_SMOOTH);
         mypage_icon = new ImageIcon(mypage_img);

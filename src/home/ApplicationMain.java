@@ -68,9 +68,13 @@ class ListPanel extends JPanel{
         pre = new JButton("◀");
         pre.setBounds(10,640,50,50);
         pre.setBackground(Color.white);
+        pre.setForeground(new Color(157,184,177));
+        pre.setBorder(BorderFactory.createLineBorder(new Color(157,184,177)));
         next = new JButton("▶");
         next.setBounds(420,640,50,50);
         next.setBackground(Color.white);
+        next.setForeground(new Color(157,184,177));
+        next.setBorder(BorderFactory.createLineBorder(new Color(157,184,177)));
         add(pre);
         add(next);setVisible(true);
 
@@ -157,7 +161,7 @@ public class ApplicationMain extends JFrame{
     public ApplicationMain(){
         setLayout(null);
         setTitle("CP2-ShoppingMall");
-        setSize(500,1100);
+        setSize(500,1020);
         //헤드
         HeadPanel head_panel = new HeadPanel();
         head_panel.setBounds(0,0,500,200);
@@ -169,20 +173,15 @@ public class ApplicationMain extends JFrame{
         ListPanel list_panel = new ListPanel();
         list_panel.setBounds(0,200,500,700);
         add(list_panel);
-        setVisible(true);
         //바디
         //2. ProductPanel
 //        ProductPanel product_panel = new ProductPanel();
 //        product_panel.setBounds(0,45,500,765);
 //        add(product_panel);
 
-        //푸터
-        JLabel test  = new JLabel("테스트");
-
-/*        FootPanel foot_panel = new FootPanel();
-        foot_panel.setBounds(0,900,500,100);
-        add(foot_panel);*/
-
+        FootPanel foot_panel = new FootPanel();
+        foot_panel.setBounds(0,880,500,100);
+        add(foot_panel);
         setVisible(true);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
