@@ -29,6 +29,7 @@ public class ApplicationMain extends JFrame{
 //        ProductPanel product_panel = new ProductPanel();
 //        product_panel.setBounds(0,200,500,700);
 //        add(product_panel);
+<<<<<<< HEAD
 //       //3. 판매자 글 작성 페이지
 //        WritePostPanel write_post_panel = new WritePostPanel();
 //        write_post_panel.setBounds(0,200,500,700);
@@ -38,6 +39,12 @@ public class ApplicationMain extends JFrame{
                 = new BasketPanel();
         basket_panel.setBounds(0,200,500,700);
         add(basket_panel);
+=======
+        //3. 판매자 글 작성 페이지
+        WritePostPanel write_post_panel = new WritePostPanel();
+        write_post_panel.setBounds(0,200,500,700);
+        add(write_post_panel);
+>>>>>>> a319d84b650a3e9cdf4a379074248437807cd5a9
 
 
         //푸터
@@ -45,6 +52,17 @@ public class ApplicationMain extends JFrame{
         foot_panel.setBounds(0,880,500,100);
         add(foot_panel);
         setVisible(true);
+<<<<<<< HEAD
+=======
+
+
+/*        //메인 페이지
+        //TODO 메인페이지 실행시에 위에 헤드, 바디, 푸터 모두 주석처리하고 실행
+        MainpagePanel mainpage_panel = new MainpagePanel();
+        mainpage_panel.setBounds(0,0,500,1200);
+        add(mainpage_panel);
+        setVisible(true);*/
+>>>>>>> a319d84b650a3e9cdf4a379074248437807cd5a9
 
 //        //4. 메인 페이지
 //        //TODO 메인페이지 실행시에 위에 헤드, 바디, 푸터 모두 주석처리하고 실행
